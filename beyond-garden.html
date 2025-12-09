@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<title>The Living Garden | Beyond Garden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts: Arimo -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="main-style.css" />
+</head>
+
+
+<body class="beyond-garden">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topnav" role="banner">
+  <div class="logo"><a href="index.html">The Living Garden</a></div>
+  <nav class="links" aria-label="Main navigation">
+    <a href="index.html">Garden</a>
+    <a href="hard-facts.html">Hard Facts</a>
+    <a href="diary.html">Personal Diary</a>
+    <a href="beyond-garden.html" aria-current="page">Beyond Garden</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<main id="main" class="page-shell">
+
+  <!-- Big map card -->
+  <section class="card beyond-hero">
+    <div class="beyond-hero-inner">
+      <!-- Left side: guide + text -->
+      <div class="beyond-hero-guide">
+  <!-- Character image on the left -->
+  <img
+    src="Tutuor-character2.svg"
+    alt="Cartoon character holding a watering can"
+    class="beyond-guide-character"
+  />
+
+</div>
+
+
+      <!-- Right side: map -->
+      <div class="beyond-hero-map">
+        <img src="b-map.png"
+             alt="City map with highlighted garden areas" />
+      </div>
+    </div>
+  </section>
+
+    <!-- Parks by borough (API-driven) -->
+  <section class="card borough-filter">
+    <p class="borough-filter-intro">
+      Click a borough to see a few parks from NYC Open Data.
+    </p>
+
+    <div class="borough-chips">
+      <button class="borough-chip is-active" data-borough="M">Manhattan</button>
+<button class="borough-chip" data-borough="B">Brooklyn</button>
+<button class="borough-chip" data-borough="Q">Queens</button>
+<button class="borough-chip" data-borough="X">The Bronx</button>
+<button class="borough-chip" data-borough="R">Staten Island</button>
+   </div>
+  </section>
+
+  <!-- This grid will be filled by JavaScript with park cards -->
+  <section class="place-grid" id="parksGrid" aria-live="polite">
+    <!-- JS will inject <article class="place-card">...</article> here -->
+  </section>
+
+</main>
+
+
+<footer role="contentinfo" class="site-footer">
+  
+
+  <section class="footer-meta">
+    <h3 class="visually-hidden">Beyond Garden data sources</h3>
+
+    <p class="footer-line">
+      <strong>Page author:</strong> Zeqian Li (Beyond Garden: Parks &amp; People)
+    </p>
+
+    <p class="footer-line">
+      <strong>API &amp; data:</strong> Park information on this page is loaded
+      with JavaScript from the <em>NYC Open Data</em> platform using the Parks
+      Properties dataset (<code>94pk-v63f</code>). Only a small sample of
+      larger parks is shown for educational purposes.
+    </p>
+
+    <p class="footer-line">
+      <strong>Descriptions:</strong> The short park descriptions, explanations
+      of why parks matter, and connections to children’s learning are original
+      text written by the Living Garden team.
+    </p>
+
+    <p class="footer-line">
+      <strong>JavaScript:</strong> This page uses custom JavaScript to fetch
+      open data, group parks by borough, and display them as interactive cards
+      for kids ages 8–12.
+    </p>
+    <p>© 2025 The Living Garden — Educational use only.</p>
+  </section>
+</footer>
+
+
+<script src="beyond-garden.js"></script>
+</body>
+</html>
+
