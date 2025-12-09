@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Living Garden | Hard Facts</title>
+<title>The Living Garden | Beyond Garden</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts: Arimo -->
@@ -11,7 +11,7 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="main-style.css" />
 </head>
 
 
@@ -38,7 +38,7 @@
       <div class="beyond-hero-guide">
   <!-- Character image on the left -->
   <img
-    src="Tutuor2.svg"
+    src="Tutuor-character2.svg"
     alt="Cartoon character holding a watering can"
     class="beyond-guide-character"
   />
@@ -48,7 +48,7 @@
 
       <!-- Right side: map -->
       <div class="beyond-hero-map">
-        <img src="map.png"
+        <img src="b-map.png"
              alt="City map with highlighted garden areas" />
       </div>
     </div>
@@ -77,10 +77,40 @@
 </main>
 
 
-<footer role="contentinfo">
-  <p>© 2025 The Living Garden — Educational use only.</p>
+<footer role="contentinfo" class="site-footer">
+  
+
+  <section class="footer-meta">
+    <h3 class="visually-hidden">Beyond Garden data sources</h3>
+
+    <p class="footer-line">
+      <strong>Page author:</strong> Zeqian Li (Beyond Garden: Parks &amp; People)
+    </p>
+
+    <p class="footer-line">
+      <strong>API &amp; data:</strong> Park information on this page is loaded
+      with JavaScript from the <em>NYC Open Data</em> platform using the Parks
+      Properties dataset (<code>94pk-v63f</code>). Only a small sample of
+      larger parks is shown for educational purposes.
+    </p>
+
+    <p class="footer-line">
+      <strong>Descriptions:</strong> The short park descriptions, explanations
+      of why parks matter, and connections to children’s learning are original
+      text written by the Living Garden team.
+    </p>
+
+    <p class="footer-line">
+      <strong>JavaScript:</strong> This page uses custom JavaScript to fetch
+      open data, group parks by borough, and display them as interactive cards
+      for kids ages 8–12.
+    </p>
+    <p>© 2025 The Living Garden — Educational use only.</p>
+  </section>
 </footer>
 
-<script src="script.js"></script>
+
+<script src="beyond-garden.js"></script>
 </body>
 </html>
+

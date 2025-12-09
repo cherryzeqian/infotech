@@ -11,7 +11,7 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="main-style.css" />
 </head>
 
 
@@ -34,145 +34,164 @@
 
   
 
-  <!-- speech bubble + character -->
-  <div class="intro-bubble">
-    <p class="lede">
+  
+
+
+   <!-- Core ideas accordion -->
+  <section class="card" id="hard-facts-intro">
+  <div class="hf-hero">
+    <!-- 左边小角色 -->
+    <img
+      src="Tutor-character.svg"
+      alt="Little garden guide character holding a watering can"
+      class="hf-hero__character"
+    />
+
+    <!-- 右边白色说明卡片 -->
+    <p class="hf-hero__text">
       Hi, I’m your guide for this page! I love exploring nature, and I want to
       show you some of the coolest science hiding in gardens, parks, and even
       schoolyards. Here I share what I’ve learned about ecosystems, trees,
       photosynthesis, and the seasons. As you read, try to think about the
-      plants and places you see every day—you might notice things you never
+      plants and places you see every day — you might notice things you never
       saw before!
     </p>
-
-    <!-- change the src to your actual character image path -->
-    <img
-      src="TutorCharacter.svg"
-      alt="Cartoon character holding a magnifying glass."
-      class="intro-character"
-    />
   </div>
 </section>
 
 
-   <!-- Core ideas accordion -->
-  <section class="card core-ideas" id="hard-facts-intro">
+<!-- Core Ideas + Sticky Note -->
+<section class="card core-ideas" id="hard-facts-core">
+  <header class="card-header">
     <h2>Core Ideas About Nature</h2>
     <p class="lede">
       These cards explain four big ideas that help our Living Garden work:
-      trees, ecosystems, photosynthesis, and seasons. Each card has a picture
-      and a short story to make the science easy to understand.
+      trees, ecosystems, photosynthesis, and seasons. Each card has a short
+      story to make the science easy to understand.
     </p>
+  </header>
 
-    <div class="core-layout">
-      <!-- Left: image bars + panels -->
-      <div class="idea-list">
+  <div class="core-layout">
+    <!-- 左边：四个可下拉的 bar -->
+    <div class="idea-list">
 
-        <!-- Trees -->
-        <article class="idea-item">
-          <button
-            class="idea-bar open"
-            data-target="panel-trees"
-            style="--idea-image: url('images/trees.jpg');"
-          >
-            <span class="idea-label">Trees</span>
-            <span class="idea-chevron">⌃</span>
-          </button>
-          <div class="idea-panel open" id="panel-trees">
-            <h3>Trees</h3>
-            <p>
-              Trees are tall plants with strong trunks that support branches and
-              leaves. Their roots drink water and take in nutrients from the soil.
-              Leaves help trees breathe by taking in carbon dioxide and releasing
-              oxygen, which people and animals need to live. Trees also make shade,
-              protect soil from washing away, and give homes to birds and insects.
-              When we plant or care for trees, we help the whole environment stay
-              healthy.
-            </p>
-          </div>
-        </article>
+      <!-- Trees -->
+      <article class="idea-block">
+  <button
+    type="button"
+    class="idea-bar"
+    style="--idea-image: url('Tree.png');"
+  >
+    <span class="idea-bar__title">Trees</span>
+    <span class="idea-bar__chevron" aria-hidden="true">▾</span>
+  </button>
+        <div class="idea-panel">
+          <h3>Trees</h3>
+          <p>
+            Trees are tall plants with strong trunks that support branches and
+            leaves. Their roots drink water and take in nutrients from the soil.
+            Leaves help trees breathe by taking in carbon dioxide and releasing
+            oxygen, which people and animals need to live. Trees also make shade,
+            protect soil from washing away in the rain, and give homes to birds
+            and insects. When we plant or care for trees, we help the whole
+            environment stay healthy.
+          </p>
+        </div>
+      </article>
 
-        <!-- Ecosystems -->
-        <article class="idea-item">
-          <button
-            class="idea-bar"
-            data-target="panel-ecosystems"
-            style="--idea-image: url('images/ecosystem.jpg');"
-          >
-            <span class="idea-label">Ecosystems</span>
-            <span class="idea-chevron">⌃</span>
-          </button>
-          <div class="idea-panel" id="panel-ecosystems">
-            <h3>Ecosystems</h3>
-            <p>
-              An ecosystem is a community of living things—plants, animals,
-              insects, and tiny organisms—working together with sunlight, air,
-              water, and soil. Every part of an ecosystem matters. If one part
-              changes, others change too. Healthy ecosystems give us clean air and
-              water, food, and safe places for wildlife to live. We can support
-              ecosystems by keeping parks and gardens clean and by choosing plants
-              that belong in local habitats.
-            </p>
-          </div>
-        </article>
+      <!-- Ecosystems -->
+      <article class="idea-block">
+  <button
+    type="button"
+    class="idea-bar"
+    style="--idea-image: url('ecosystem.png');"
+  >
+    <span class="idea-bar__title">Ecosystems</span>
+    <span class="idea-bar__chevron" aria-hidden="true">▾</span>
+  </button>
+        <div class="idea-panel">
+          <h3>Ecosystems</h3>
+          <p>
+            An ecosystem is a community of living things—plants, animals, and tiny
+            organisms—plus sunlight, water, air, and soil. These parts interact
+            and keep each other in balance. If one part changes, the others may
+            change too. Healthy ecosystems provide clean air and water, food, and
+            safe homes for wildlife. People can support ecosystems by keeping
+            parks and gardens clean and by choosing plants that belong in local
+            habitats.
+          </p>
+        </div>
+      </article>
 
-        <!-- Photosynthesis -->
-        <article class="idea-item">
-          <button
-            class="idea-bar"
-            data-target="panel-photosynthesis"
-            style="--idea-image: url('images/photosynthesis.jpg');"
-          >
-            <span class="idea-label">Photosynthesis</span>
-            <span class="idea-chevron">⌃</span>
-          </button>
-          <div class="idea-panel" id="panel-photosynthesis">
-            <h3>Photosynthesis</h3>
-            <p>
-              Photosynthesis is how plants make their own food. Leaves use
-              sunlight, water, and carbon dioxide from the air to create sugars
-              for energy. Oxygen is released into the air as a bonus. This process
-              is one reason plants are so important for life on Earth—they make
-              much of the oxygen we breathe. When there is less sunlight, plants
-              make less food, so weather and seasons can change how fast plants
-              grow.
-            </p>
-          </div>
-        </article>
+      <!-- Photosynthesis -->
+      <article class="idea-block">
+  <button
+    type="button"
+    class="idea-bar"
+    style="--idea-image: url('photosynthesis.png');"
+  >
+    <span class="idea-bar__title">Photosynthesis</span>
+    <span class="idea-bar__chevron" aria-hidden="true">▾</span>
+  </button>
+        <div class="idea-panel">
+          <h3>Photosynthesis</h3>
+          <p>
+            Photosynthesis is how plants make their own food. Leaves use sunlight,
+            water, and carbon dioxide from the air to create sugars for energy.
+            Oxygen is released as a bonus. This process is one reason plants are
+            so important for life on Earth—they make much of the oxygen we
+            breathe. When days are cloudy or short, plants may grow more slowly.
+            That is why seasons and weather matter to gardens, farms, and
+            forests.
+          </p>
+        </div>
+      </article>
 
-        <!-- Seasons -->
-        <article class="idea-item">
-          <button
-            class="idea-bar"
-            data-target="panel-seasons"
-            style="--idea-image: url('images/seasons.jpg');"
-          >
-            <span class="idea-label">Seasons</span>
-            <span class="idea-chevron">⌃</span>
-          </button>
-          <div class="idea-panel" id="panel-seasons">
-            <h3>Seasons</h3>
-            <p>
-              A garden changes with the seasons. In spring, plants wake up and
-              grow new leaves and flowers. Summer is warm and bright, so plants
-              grow quickly and fruits begin to form. In fall, leaves change color
-              and many plants drop seeds for next year. Winter is a quiet time
-              when many plants rest. Each season brings different colors and jobs
-              for plants, animals, and people who care for the garden.
-            </p>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Right: side text box -->
-     <aside class="idea-aside">
-  <p>Small Tips: tap a bar to open it and see how that idea helps our Living Garden grow.</p>
-</aside>
-
+      <!-- Seasons -->
+      <article class="idea-block">
+  <button
+    type="button"
+    class="idea-bar"
+    style="--idea-image: url('Seasons.png');"
+  >
+    <span class="idea-bar__title">Seasons</span>
+    <span class="idea-bar__chevron" aria-hidden="true">▾</span>
+  </button>
+        <div class="idea-panel">
+          <h3>Seasons</h3>
+          <p>
+            Seasons are parts of the year with different temperatures and weather
+            patterns. In many places, spring brings new growth, summer brings
+            warmth and longer days, fall brings colorful leaves, and winter brings
+            cold and rest for many plants. Not every region has the same seasons,
+            and places near the equator can feel warm most of the year. Learning
+            about local seasons helps us plan when to plant, water, and harvest.
+          </p>
+        </div>
+      </article>
     </div>
-  </section>
 
+    <!-- 右边：sticky note 小贴士 -->
+    <aside class="idea-aside">
+      <h3>How to Use These Cards</h3>
+      <p>
+        Start with any bar that looks interesting and tap it to open. Read the
+        short story and imagine a real place you know—a garden, a schoolyard, or
+        a park—where you can see this idea in action.
+      </p>
+      <ul>
+        <li><strong>Trees:</strong> Think about one tree you see often. What lives on or under it?</li>
+        <li><strong>Ecosystems:</strong> Notice how plants, animals, and weather all connect.</li>
+        <li><strong>Photosynthesis:</strong> Look for sunny and shady spots. How do plants look different?</li>
+        <li><strong>Seasons:</strong> Try to name the current season and what is changing right now.</li>
+      </ul>
+      <p>
+        You can come back to these cards while you explore other pages of The
+        Living Garden website.
+      </p>
+    </aside>
+  </div>
+</section>
 
 
   <!-- Quiz section -->
@@ -333,18 +352,56 @@
       </p>
     </article>
 
-    <button type="button" id="checkFactsQuiz" class="btn">
-      Check all answers
-    </button>
+<div class="quiz-actions">
+  <button id="checkQuizBtn" class="quiz-check-btn" type="button">
+    Check all answers
+  </button>
+  <button id="clearQuizBtn" class="quiz-clear-btn" type="button">
+    Clear all answers
+  </button>
+</div>
+
 
     <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
   </section>
 </main>
 
-<footer role="contentinfo">
+<footer role="contentinfo" class="site-footer">
   <p>© 2025 The Living Garden — Educational use only.</p>
+
+  <section class="footer-meta">
+    <h3 class="visually-hidden">Hard Facts credits and sources</h3>
+
+    <p class="footer-line">
+      <strong>Page author:</strong> Zeqian Li (Hard Facts &amp; quiz design)
+    </p>
+
+    <p class="footer-line">
+      <strong>Content &amp; quiz:</strong> All explanations and multiple-choice
+      questions on this page were written by the Living Garden team for the
+      INFO-Tech final project. They are based on common garden science topics
+      (plants, soil, pollinators, and seasons) and simplified for learners ages
+      8–12.
+    </p>
+
+    <p class="footer-line">
+      <strong>Fact checking:</strong> Key ideas were reviewed against
+      kid-friendly science resources (for example, public educational materials
+      on plant needs, pollinators, soil life, and seasonal changes) to keep the
+      information accurate and age-appropriate.
+    </p>
+
+    <p class="footer-line">
+      <strong>JavaScript:</strong> This page uses custom JavaScript to power the
+      dropdown “core ideas” cards and the auto-checking garden quiz. No
+      external API is used on this page.
+    </p>
+    <p>© 2025 The Living Garden — Educational use only.</p>
+
+  </section>
 </footer>
 
-<script src="script.js"></script>
+<script src="hard-facts.js"></script>
 </body>
 </html>
+

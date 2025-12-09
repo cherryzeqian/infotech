@@ -1,3 +1,13 @@
+
+/*Zeqian*/
+.navigation {
+    width: 100%;
+    max-width: 1200px; 
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    font-size: 16px;
+}
 /* =========================================
    Global base styles
    ========================================= */
@@ -203,296 +213,158 @@ header.topnav {
    ========================================= */
 
 
-/* Page intro */
 
-.page-intro {
-  text-align: center;
-  margin-bottom: 32px;
+/* === Hard Facts 顶部：角色 + 白色说明小卡片 === */
+
+#hard-facts-intro {
+  padding-top: 24px;
+  padding-bottom: 8px;
 }
 
-.page-intro h1 {
-  font-size: 28px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
+/* 外层：角色 + 卡片 横向排布 */
+.hf-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  max-width: 710px;
+  margin: 0 auto 24px; /* 居中 + 底部留一点空间 */
 }
 
-.byline {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin: 0 0 8px;
-}
-
-
-  .lede {
-  max-width: 720px;   /* or 640px – whatever you like */
-  margin: 0 auto;
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--text-main);
-}
-
-
-/* Intro speech bubble */
-.intro-bubble {
-  position: relative;
-  max-width: 780px;
-  margin: 18px auto 0;
-  padding: 24px 32px 32px;      /* extra padding */
-  padding-left: 96px;           /* reserve space for character */
-  background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-  text-align: left;
-  z-index: 1;
-}
-
-
-/* guide character sitting below-left of bubble */
-.intro-character {
-  position: absolute;
-  width: 100px;                  /* adjust to your art */
-  left: -80px;                   /* inside the “reserved” space */
-  bottom: -20px;                /* overlaps tail but not text */
-  z-index: 2;                   /* in front of tail */
+/* 左边小角色 */
+.hf-hero__character {
+  width: 130px;
+  height: auto;
   display: block;
+  flex-shrink: 0;
 }
 
-/* mobile tweaks */
-@media (max-width: 500px) {
-  .intro-bubble {
-    padding-left: 80px;
+/* 右边白色说明卡片 */
+.hf-hero__text {
+  margin: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #374151;
+  max-width: 560px;
+}
+
+/* 小屏幕：上下排，卡片占满宽度 */
+@media (max-width: 700px) {
+  .hf-hero {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .intro-character {
-    width: 64px;
-    left: 18px;
-    bottom: -32px;
+  .hf-hero__text {
+    width: 100%;
   }
 }
 
 
+/* ---- 公共卡片容器样式（Hard Facts 使用） ---- */
 
+.hardfacts-section {
+  max-width: 1040px;
+  margin: 0 auto;
+}
 
-/* Card wrapper used for both sections */
-
-.card {
+.hardfacts-section .card {
   background: var(--card-bg);
-  border-radius: var(--radius-xl);
-  padding: 26px 28px 32px;
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--card-radius-lg);
+  padding: 24px 26px;
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.14);
   margin-bottom: 28px;
 }
 
-.card h2 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 20px;
+/* =========================================
+   Core Ideas —— 上面四个主题 + 折叠内容
+   ========================================= */
+
+.core-ideas {
+  max-width: 1040px;
+  margin: 0 auto 36px;
 }
-
-.card > p {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-}
-
-/* Core idea grid */
-
-.facts-grid {
+/* 左边：四条大按钮；右边：小贴士 sticky note */
+.core-layout {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 20px;
+  align-items: flex-start;
 }
 
-@media (max-width: 980px) {
-  .facts-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .facts-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.fact-card {
-  background: #f9fafb;
-  border-radius: 22px;
-  padding: 14px 14px 16px;
-  box-shadow: var(--shadow-light);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.fact-image {
-  border-radius: 18px;
-  margin-bottom: 10px;
-  object-fit: cover;
-  height: 120px;
-}
-
-.fact-card h3 {
-  font-size: 14px;
-  margin: 4px 0 4px;
-}
-
-.fact-card p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-main);
-  margin: 0;
-}
-
-/* Quiz section */
-
-#facts-quiz.card {
-  margin-top: 24px;
-}
-
-#facts-quiz > p {
-  margin-bottom: 16px;
-}
-
-/* Each quiz block */
-
-.fact-block {
-  background: #f9fafb;
-  border-radius: 18px;
-  border: 1px solid var(--border-soft);
-  padding: 16px 18px 18px;
-  margin-bottom: 14px;
-}
-
-.fact-block h3 {
-  margin: 0 0 6px;
-  font-size: 14px;
-  color: var(--accent-green-dark);
-}
-
-.fact-block p {
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0 0 10px;
-}
-
-.quiz-question {
-  margin-top: 4px;
-}
-
-.quiz-question strong {
-  font-size: 13px;
-}
-
-.quiz-question label {
-  font-size: 13px;
-}
-
-/* Select inputs */
-
-.mcq {
-  display: block;
-  width: 100%;
-  margin-top: 6px;
-  padding: 8px 10px;
-  border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  background: #ffffff;
-  font-family: inherit;
-  font-size: 13px;
-  outline: none;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.mcq:focus {
-  border-color: var(--accent-green);
-  box-shadow: 0 0 0 2px rgba(142, 207, 90, 0.4);
-}
-
-/* Correct / incorrect state colors that script.js can toggle */
-.fact-block.correct {
-  border-color: rgba(74, 222, 128, 0.8);
-  background: #ecfdf3;
-}
-
-.fact-block.incorrect {
-  border-color: rgba(239, 68, 68, 0.8);
-  background: #fef2f2;
-}
-
-/* Button + feedback */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 8px;
-  padding: 11px 26px;
-  border-radius: var(--radius-pill);
-  border: none;
-  background: var(--accent-green);
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 16px 34px rgba(142, 207, 90, 0.45);
-  transition:
-    background 0.15s ease,
-    transform 0.12s ease,
-    box-shadow 0.12s ease;
-}
-
-.btn:hover {
-  background: var(--accent-green-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 20px 40px rgba(76, 122, 45, 0.6);
-}
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: 0 10px 24px rgba(76, 122, 45, 0.45);
-}
-
-
-.quiz-feedback {
-  font-size: 13px;
-  margin-top: 10px;
-  color: var(--text-muted);
-}
-/* ==== Core ideas accordion layout ==== */
-
-.core-ideas .core-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 1.4fr);
-  gap: 24px;
-  margin-top: 18px;
-  align-items: flex-start;   /* 👈 important */
-}
-
-
+/* 小屏幕改成上下堆叠 */
 @media (max-width: 900px) {
-  .core-ideas .core-layout {
+  .core-layout {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
-/* Left side list */
 
+/* 右侧的「sticky note」小贴士卡片 */
+.idea-aside {
+  background: #fffbe6;                 /* 淡黄色便签纸感觉 */
+  border-radius: 16px;
+  padding: 14px 16px;
+  border: 1px solid #f2e1a3;          /* 稍微深一点的黄边框 */
+ 
+
+  position: sticky;                    /* 滚动时粘在右侧 */
+  top: 96px;                           /* 离页面顶部的距离，可微调 */
+}
+
+.idea-aside h3 {
+  margin: 0 0 6px;
+  font-size: 0.98rem;
+}
+
+.idea-aside p {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+}
+
+.idea-aside ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* 小屏幕就不要 sticky，改成普通卡片 */
+@media (max-width: 900px) {
+  .idea-aside {
+    position: static;
+    margin-top: 8px;
+  }
+}
+
+
+
+
+/* 列表容器 */
 .idea-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
+/* 每一项外层 */
 .idea-item {
-  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
+/* 绿色胶囊形的大按钮，用在 Trees / Ecosystems / Photosynthesis / Seasons */
 /* Image bar button */
-
+/* 绿色胶囊形的大按钮，用在 Trees / Ecosystems / Photosynthesis / Seasons */
+/* Image bar button */
 .idea-bar {
   width: 100%;
   position: relative;
@@ -518,98 +390,131 @@ header.topnav {
     background-position 6s linear;
 }
 
-.idea-bar:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
-  background-position: center right;
-}
-
-.idea-label {
-  font-size: 18px;
-  letter-spacing: 0.06em;
-}
-
-.idea-chevron {
-  margin-left: auto;
-  font-size: 16px;
-  transform: rotate(180deg);
-  transition: transform 0.2s ease;
-}
-
-/* bar when open */
-
-.idea-bar.open .idea-chevron {
-  transform: rotate(0deg);
-}
-
-/* Panel text under each bar */
-
+/* 手风琴面板默认收起 */
 .idea-panel {
   max-height: 0;
   overflow: hidden;
-  padding: 0 18px;
-  opacity: 0;
-  transform: translateY(-6px);
-  transition:
-    max-height 0.25s ease,
-    opacity 0.25s ease,
-    transform 0.25s ease;
+  transition: max-height 0.25s ease;
+  padding-top: 0;
+  margin-top: 0.5rem;
 }
 
+/* 展开状态 */
 .idea-panel.open {
-  max-height: 320px; /* enough to show text */
-  padding-top: 12px;
-  opacity: 1;
-  transform: translateY(0);
+  /* panel.js 会设置 max-height，但这里可以加点内边距 */
+  padding-top: 0.25rem;
 }
 
-.idea-panel h3 {
-  font-size: 14px;
+/* 小箭头旋转 */
+.idea-bar__chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.idea-bar.open .idea-bar__chevron {
+  transform: rotate(180deg);
+}
+
+
+
+
+
+/* =========================================
+   Garden Fact Lab Quiz （下面 6 个填空题）
+   ========================================= */
+
+#facts-quiz {
+  max-width: 1040px;
+  margin: 0 auto 40px;
+}
+
+/* 整体卡片风格 */
+#facts-quiz .card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius-lg);
+  padding: 24px 26px 28px;
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.12);
+}
+
+/* 每一道题的外层块 */
+.fact-block {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  margin-bottom: 14px;
+}
+
+.fact-block.correct {
+  border: 2px solid #2e7d32;
+}
+
+.fact-block.incorrect {
+  border: 2px solid #c62828;
+}
+
+/* 问题标题（1) What Is a Living Garden?…） */
+.fact-block h3 {
   margin: 0 0 6px;
+  font-size: 0.98rem;
 }
 
-.idea-panel p {
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0 0 4px;
+/* 问题正文 */
+.fact-block p {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
-/* Right side grey text box */
-
-/* Sticky-note style for the side text */
-/* Sticky-note style for the side text */
-.idea-aside {
-  position: relative;
-  align-self: flex-start;        /* 👈 keep its own height */
-  width: 260px;                  /* fixed “sticky note” width */
-  max-width: 100%;
-  background: #fffbe6;
-  border-radius: 14px;
-  padding: 16px 18px 18px;
-  font-size: clamp(12px, 0.8vw + 10px, 14px); /* 👈 scales nicely */
-  color: #374151;
-  line-height: 1.4;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
-  transform: rotate(-1.5deg);
+/* “Fill-in-the-blank:” 和 “Choose your answer:” 文本 */
+.quiz-question {
+  margin-top: 8px;
+  font-size: 0.9rem;
 }
 
-/* little “tape” at the top */
-.idea-aside::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(2deg);
-  width: 80px;
-  height: 16px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+/* 选择框下拉 */
+.mcq {
+  min-width: 180px;
+  padding: 4px 6px;
+  border-radius: 12px;
+  border: 1px solid #b0bec5;
+  margin-top: 4px;
+  font-size: 0.95rem;
 }
 
-.idea-aside p {
-  margin: 0;
+/* 选择正确 / 错误时的视觉反馈 */
+.mcq.correct {
+  background-color: #e8f5e9;
+  border: 2px solid #2e7d32;
 }
+
+.mcq.incorrect {
+  background-color: #ffebee;
+  border: 2px solid #c62828;
+}
+
+/* quiz 底部反馈文字 “You got X out of 6 correct…” */
+.quiz-feedback {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Quiz 按钮沿用全站的手绘绿色按钮（你已有 .btn 的话可以不写） */
+#facts-quiz .btn {
+  margin-top: 10px;
+}
+
+/* 卡片内的小提示文字 */
+#facts-quiz small {
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+/* =========================================
+   End of Hard Facts styles
+   ========================================= */
+
 
 
 /* Beyond Garden hero uses base .card look */
@@ -727,13 +632,17 @@ header.topnav {
   gap: 8px;
 }
 
-/* Small pill buttons for boroughs */
-.borough-chip {
+
+/* ✅ Unified Green Button Style (Beyond Garden + Quiz) */
+/* Base pill style for all small buttons */
+.borough-chip,
+.quiz-check-btn,
+.quiz-clear-btn {
   border-radius: 999px;
   border: 1px solid var(--border-soft);
   background-color: #f3f4f6;
-  padding: 6px 14px;
-  font-size: 13px;
+  padding: 10px 18px;
+  font-size: 14px;
   color: var(--text-muted);
   cursor: pointer;
   font-family: inherit;
@@ -744,20 +653,165 @@ header.topnav {
     transform 0.1s ease;
 }
 
-.borough-chip:hover {
+
+/* Hover */
+.borough-chip:hover,
+.quiz-check-btn:hover {
   background-color: #e5f4da;
   color: #111827;
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(148, 163, 184, 0.45);
 }
 
-/* active (currently selected) chip */
+/* Green primary (Check all answers, active borough) */
+.quiz-check-btn,
 .borough-chip.is-active {
   background-color: var(--accent-green);
   color: #ffffff;
   border-color: var(--accent-green);
   box-shadow: 0 8px 20px rgba(142, 207, 90, 0.65);
 }
+
+.quiz-check-btn:hover,
+.borough-chip.is-active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(76, 122, 45, 0.6);
+}
+
+/* Secondary style for Clear button: white with green outline */
+.quiz-clear-btn {
+  background-color: #ffffff;
+  color: var(--accent-green-dark);
+  border-color: var(--accent-green);
+  box-shadow: none;
+}
+
+.quiz-clear-btn:hover {
+  background-color: #f1f8e9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(148, 163, 184, 0.45);
+}
+
+/* Layout for the two buttons */
+.quiz-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+
+/* ===== About page ===== */
+
+/* ===== About page hero ===== */
+.about-hero {
+  max-width: 1120px;
+  margin: 56px auto 80px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.about-hero p {
+  max-width: 840px;
+  margin: 16px auto 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+
+.about-hero h1 {
+  letter-spacing: 0.12em;
+  margin-bottom: 30px;     /* 标题和段落之间的距离 */
+}
+
+.about-hero .lede {
+  max-width: 760px;        /* 把长段控制在更舒服的宽度 */
+  margin: 0 auto;
+  font-size: 1.02rem;
+  line-height: 1.7;        /* 行距大一点，更好读 */
+}
+
+/* 下面是 Who We Are 等的样式，如果你已经有就保留 */
+.about-card h2 {
+  margin-bottom: 12px;
+}
+
+.about-intro {
+  margin-bottom: 24px;
+  color: var(--muted-text);
+}
+
+/* 三人小组布局（和之前一致） */
+.member-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.member {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.member:first-of-type {
+  border-top: none;
+}
+
+/* ===== About page member photos ===== */
+
+.member-photo {
+  width: 56px;           /* 统一宽度 */
+  height: 56px;          /* 统一高度，保持正方形 */
+  border-radius: 50%;    /* 变成圆头像 */
+  object-fit: cover;     /* 多余部分裁掉，避免拉伸变形 */
+  display: block;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
+}
+
+@media (min-width: 768px) {
+  .member-photo {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+
+.member-text h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.member-role {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+.member-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .about-card {
+    padding: 28px 32px;
+  }
+
+  .member-photo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 
 /* =========================================
    Footer (shared)
@@ -772,6 +826,7 @@ footer {
   text-align: center;
 }
 
+/*Shanshan*/
 .biaoti_1 {
     position: absolute;
     top: 128px;
@@ -1005,6 +1060,53 @@ footer {
     line-height: 26px;
 }
 
+.daHezi {
+    width: 100%;
+    background-color: white;
+    max-width: 1164px;
+    height: 1710px;
+    position: relative;
+    overflow: hidden;
+}
+
+.neirong {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.top_nav {
+    width: 1031px;
+    position: absolute;
+    top: 18px;
+    left: 31px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    font-size: 16px;
+    align-items: center;
+}
+
+.n_item {
+    margin-left: 40px;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    font-family: 'Arimo', sans-serif;
+}
+
+.xuanzhong {
+    font-weight: bold;
+}
+
+.biaoti_1 {
+    position: absolute;
+    top: 128px;
+    left: 198px;
+    width: 768px;
+    text-align: center;
+}
+
+
 .bg_lan { background-color: #e3f2fd; }
 .txt_lan { color: #64b5f6; }
 
@@ -1016,3 +1118,126 @@ footer {
 
 .bg_lv { background-color: #e8f5e9; }
 .txt_lv { color: #81c784; }
+
+
+/*Junhao*/
+.other {
+    text-decoration: none;
+    color: #333;
+    margin-left: 40px; 
+}
+
+.chosen {
+    font-weight: bold; 
+}
+
+.container {
+    max-width: 1200px;
+    padding-top: 30px;
+}
+
+.citylist {
+    display: flex;
+    justify-content: center;
+    gap: 30px; 
+    margin-bottom: 50px;
+}
+
+.city {
+    display: flex;
+    flex-direction: column;/* 变成从上到下竖排 */
+    align-items: center;
+    font-size: 14px;
+}
+
+.city img {
+    margin-bottom: 5px;
+    width: 25px; 
+}
+
+.boxandvisual {
+    display: grid;
+    grid-template-rows: 180px 250px; 
+    row-gap: 30px; /* 上下格子的间距 */
+    column-gap: 80px;
+    justify-content: center;
+}
+
+.box {
+    background-color: #fcecd9;
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box; /* 让width包含padding和border */
+    display: flex;
+    flex-direction: column;
+    overflow: auto; /* 文字滚动 */
+}
+
+.top-left, .top-right {
+    height: 180px; 
+}
+
+.bottom-left, .bottom-right { 
+    height: 250px; 
+}
+
+/* 格子定位 */
+.top-left { grid-column: 1 / 2; grid-row: 1 / 2; }
+.top-right { grid-column: 3 / 4; grid-row: 1 / 2; }
+.bottom-left { grid-column: 1 / 2; grid-row: 2 / 3; }
+.bottom-right { grid-column: 3 / 4; grid-row: 2 / 3; }
+
+.interaction {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.interaction-box {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    background-color: #ffffff; 
+    border-radius: 8px;
+    flex: 1; /* 提供图片的上下空间 */
+    margin-bottom: 10px; 
+}
+
+.interaction-png img {
+    width: 40px; 
+}
+
+.diary-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #dcbfa0; 
+    border-radius: 8px;
+    color: black; 
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tree-visual {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+}
+
+.weather-visual {
+    position: absolute; /* 以relative来定位的*/
+    width: 100%;
+    height: 100%;
+    background-size: contain; /* 保持图片完整且不会被裁剪 */
+    background-repeat: no-repeat; /* 图片不叠加 */
+    transform: translateX(-110px); 
+}
+
+.tree-visual img {
+    width: 300px;
+    transform: translateX(110px); 
+}
