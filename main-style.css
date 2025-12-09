@@ -219,7 +219,9 @@ header.topnav {
 #hard-facts-intro {
   padding-top: 24px;
   padding-bottom: 8px;
+  margin-top: 40px;   /* ✅ add this line (adjust 40 → 50/60 if you want more space) */
 }
+
 
 /* 外层：角色 + 卡片 横向排布 */
 .hf-hero {
