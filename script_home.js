@@ -88,33 +88,33 @@ function getWeatherBackground(currentData) {
     var cloudCover = currentData.cloud_cover;
 
     if (snowfall > 0.1) {
-        return 'snowy.png';
+        return 'assets-junhao/snowy.png';
     }
 
     if (rain > 0.5) {
-        return 'rainy.png';
+        return 'assets-junhao/rainy.png';
     }
     
     if (windSpeed > 30) {
-        return 'windy.png';
+        return 'assets-junhao/windy.png';
     }
 
     if (cloudCover < 20) {
-        return 'sunny.png';
+        return 'assets-junhao/sunny.png';
     } else if (cloudCover >= 80) {
-        return 'cloudy.png';
+        return 'assets-junhao/cloudy.png';
     } 
 }
 
 function getTreeImage(temperature) {
     if (temperature >= 25) {
-        return 'summertree.png'; 
+        return 'assets-junhao/summertree.png'; 
     } else if (temperature >= 15) {
-        return 'springtree.png'; 
+        return 'assets-junhao/springtree.png'; 
     } else if (temperature >= 5) {
-        return 'autumntree.png'; 
+        return 'assets-junhao/vautumntree.png'; 
     } else {
-        return 'wintertree.png';
+        return 'assets-junhao/wintertree.png';
     }
 }
 
@@ -142,7 +142,7 @@ async function changeCity(cityKey) {
     } catch (error) {
         console.error("Failed to fetch weather data:", error);
         weatherBox.innerHTML = '<p>Weather data failed to load.</p>';
-        treeVisual.src = 'tree.png'; 
+        treeVisual.src = 'assets-junhao/tree.png'; 
         weather.style.backgroundImage = 'none'; 
     }//以防api无法连接失效，所以有这句code 会自动出来一棵树
 
@@ -162,10 +162,10 @@ function onClickCity(event) {
     var cityKey = event.currentTarget.getAttribute('data-city'); // 获取城市
 
     cities.forEach(function(item) {
-        item.querySelector('img').src = 'location.png';//未被点击的设置
+        item.querySelector('img').src = 'assets-junhao/location.png';//未被点击的设置
     });
 
-    event.currentTarget.querySelector('img').src = 'selected.png';//被点击
+    event.currentTarget.querySelector('img').src = 'assets-junhao/selected.png';//被点击
 
     changeCity(cityKey);
 }
@@ -182,10 +182,10 @@ function init() {
 
     if (initialPlace) {
         cities.forEach(function(item) {
-            item.querySelector('img').src = 'location.png';///设置未选中的
+            item.querySelector('img').src = 'assets-junhao/location.png';///设置未选中的
         });
 
-        initialPlace.querySelector('img').src = 'selected.png';//只把初始城市设为selected
+        initialPlace.querySelector('img').src = 'assets-junhao/selected.png';//只把初始城市设为selected
 
         changeCity(initialCityKey);
     }
