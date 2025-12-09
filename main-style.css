@@ -1,16 +1,25 @@
 
 /*Zeqian*/
 /* 顶部导航统一居中样式 */
+/* 顶部导航 —— 确保所有页面位置一致 */
 .navigation {
-  width: 100%;
-  max-width: 1120px;          /* 和 main.page-shell 对齐 */
-  margin: 0 auto;             /* 水平居中整个导航条 */
-  padding: 18px 24px 6px;     /* 和 topnav 类似的内边距，可以微调 */
   display: flex;
+  width: 1031px;           /* 固定一条导航栏宽度，和 .links 对齐 */
+  margin: 0 auto;          /* 整条导航栏居中 */
+  padding: 7px 0;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;  /* 让每个链接平均分布 */
+  gap: 10px;
   font-size: 16px;
+  text-align: center;
 }
+
+/* 让每个导航项占差不多的空间，选中加粗也不会让整排偏移 */
+.navigation a,
+.navigation .chosen {
+  flex: 1 1 0;
+}
+
 
 /* =========================================
    Global base styles
