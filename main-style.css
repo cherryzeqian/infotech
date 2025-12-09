@@ -1,13 +1,17 @@
 
 /*Zeqian*/
+/* 顶部导航统一居中样式 */
 .navigation {
-    width: 100%;
-    max-width: 1200px; 
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    font-size: 16px;
+  width: 100%;
+  max-width: 1120px;          /* 和 main.page-shell 对齐 */
+  margin: 0 auto;             /* 水平居中整个导航条 */
+  padding: 18px 24px 6px;     /* 和 topnav 类似的内边距，可以微调 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
 }
+
 /* =========================================
    Global base styles
    ========================================= */
