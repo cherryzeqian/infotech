@@ -112,7 +112,7 @@ function getTreeImage(temperature) {
     } else if (temperature >= 15) {
         return 'assets-junhao/springtree.png'; 
     } else if (temperature >= 5) {
-        return 'assets-junhao/vautumntree.png'; 
+        return 'assets-junhao/autumntree.png'; 
     } else {
         return 'assets-junhao/wintertree.png';
     }
