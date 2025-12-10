@@ -4,14 +4,14 @@
 // - Garden facts quiz
 // ==============================
 
-// 1) Core ideas accordion
+// 1) Core ideas accordion，wait until DOM ready, idea-block exist
 document.addEventListener("DOMContentLoaded", () => {
   const blocks = document.querySelectorAll(".idea-block");
-
+//loop though idea block and make sure all element exist
   blocks.forEach((block) => {
     const button = block.querySelector(".idea-bar");
     const panel = block.querySelector(".idea-panel");
-    if (!button || !panel) return;
+    if (!button || !panel) return; //safely skip any block html, so the script won't stop
 
     // 初始：收起
     panel.style.maxHeight = null;
@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const otherBtn = other.querySelector(".idea-bar");
         const otherPanel = other.querySelector(".idea-panel");
         if (!otherBtn || !otherPanel) return;
-        otherBtn.classList.remove("open");
-        otherPanel.classList.remove("open");
-        otherPanel.style.maxHeight = null;
+        otherBtn.classList.remove("open"); // remove "open" class from all header so none stay visually active
+        otherPanel.classList.remove("open"); // remove "open" class from panel
+        otherPanel.style.maxHeight = null; // collapes fully
       });
 
       // 如果刚才是关闭 -> 打开；如果刚才是打开 -> 保持全部关闭
@@ -48,12 +48,12 @@ function setupFactsQuiz() {
   const checkBtn = document.getElementById("checkQuizBtn");
   const feedback = document.getElementById("quizFeedback");
   const selects = quizSection.querySelectorAll(".mcq");
-  if (!checkBtn || !feedback || !selects.length) return;
-
+  if (!checkBtn || !feedback || !selects.length) return; // make sure we have all
+//know when to grade, grade count from 0
   checkBtn.addEventListener("click", () => {
     const total = selects.length;
     let correctCount = 0;
-
+// loop to make sure the it right
     selects.forEach((select) => {
       const userAnswer = (select.value || "").trim().toLowerCase();
       const correctAnswer = (select.getAttribute("data-answer") || "")
