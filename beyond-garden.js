@@ -2,14 +2,14 @@
 // Beyond Garden page JavaScript
 // - NYC Parks by borough (NYC Open Data)
 // ========================================
-
+// main funtion to setup, get contianer where park cards , button right place 
 function setupParksByBorough() {
   const parksGrid = document.getElementById("parksGrid");
   const boroughButtons = document.querySelectorAll(".borough-chip");
 
   // 不在 Beyond Garden 页面就退出
   if (!parksGrid || !boroughButtons.length) return;
-
+//inorder to fecth api
   const API_BASE =
     "https://data.cityofnewyork.us/resource/enfh-gkve.json";
 
@@ -44,13 +44,13 @@ async function loadParks(code) {
   // 只取前 8 个，避免太多小公园
   "&$limit=8";
 
-
+//fecth api 
     const res = await fetch(url);
     if (!res.ok) {
       throw new Error("Network error: " + res.status);
     }
 
-    const data = await res.json();
+    const data = await res.json(); /API send park info in Json, i use res.json to convert into javs
 
     // 如果一条都没有，就显示提示
     if (!data.length) {
@@ -99,7 +99,7 @@ async function loadParks(code) {
   // 绑定 borough 小按钮
   boroughButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // 激活状态切换
+      // 激活状态切换, alive
       boroughButtons.forEach((b) => b.classList.remove("is-active"));
       button.classList.add("is-active");
 
