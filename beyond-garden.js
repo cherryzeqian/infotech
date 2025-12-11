@@ -50,7 +50,7 @@ async function loadParks(code) {
       throw new Error("Network error: " + res.status);
     }
 
-    const data = await res.json(); /API send park info in Json, i use res.json to convert into javs
+    const data = await res.json(); //API send park info in Json, i use res.json to convert into javs
 
     // 如果一条都没有，就显示提示
     if (!data.length) {
