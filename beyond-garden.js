@@ -21,7 +21,7 @@ function setupParksByBorough() {
     X: "Bronx",
     R: "Staten Island",
   };
-
+//wait loard parks
 async function loadParks(code) {
   // 显示用的中文名字（给小朋友看的）
   const boroughName = BOROUGH_MAP[code] || code;
@@ -33,7 +33,7 @@ async function loadParks(code) {
     "…</p>";
 
   try {
-    // ✅ 最简单的过滤：只要 borough=M/B/Q/X/R 的记录，最多 12 条
+    //  最简单的过滤：只要 borough=M/B/Q/X/R 的记录，最多 12 条
     const url =
   API_BASE +
   "?borough=" +
